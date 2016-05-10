@@ -4,16 +4,90 @@
   <groupId>com.aug</groupId>
   <artifactId>volleyCommunity</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <name>volleyCommunity Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  
+  <properties>
+  	<spring-mvc-version>4.2.6.RELEASE</spring-mvc-version>
+  	<servlet-version>3.1.0</servlet-version>
+  	<jstl-version>1.2</jstl-version>
+  	<dom4j-version>1.6.1</dom4j-version>
+  	<common-logging-version>1.2</common-logging-version>
+  	<commons-collections-version>3.2.1</commons-collections-version>
+  	<antlr-version>2.7.7</antlr-version>
+  	<hibernate-core-version>5.1.0.Final</hibernate-core-version>
+  	<commons-collections-version>3.2.2</commons-collections-version>
+  </properties>
+  
+  
   <dependencies>
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- spring-mvc -->
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${spring-mvc-version}</version>
+	</dependency>
+	
+	<!-- servlet -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>${servlet-version}</version>
+	</dependency>
+
+	<!-- servlet jstl -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${jstl-version}</version>
+	</dependency>
+    
+    <!-- hibernate -->
+    <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate-core-version}</version>
+	</dependency>
+	    
+    
+    <!-- Hibernate library dependecy start -->
+<!-- 	<dependency> -->
+<!-- 		<groupId>dom4j</groupId> -->
+<!-- 		<artifactId>dom4j</artifactId> -->
+<!-- 		<version>${dom4j-version}</version> -->
+<!-- 	</dependency> -->
+	
+<!-- 	<dependency> -->
+<!-- 		<groupId>commons-logging</groupId> -->
+<!-- 		<artifactId>commons-logging</artifactId> -->
+<!-- 		<version>${common-logging-version}</version> -->
+<!-- 	</dependency> -->
+	
+<!-- 	<dependency> -->
+<!-- 		<groupId>commons-collections</groupId> -->
+<!-- 		<artifactId>commons-collections</artifactId> -->
+<!-- 		<version>${commons-collections-version}</version> -->
+<!-- 	</dependency> -->
+
+	
+<!-- 	<dependency> -->
+<!-- 		<groupId>antlr</groupId> -->
+<!-- 		<artifactId>antlr</artifactId> -->
+<!-- 		<version>${antlr-version}</version> -->
+<!-- 	</dependency> -->
+	<!-- Hibernate library dependecy end -->
+	
+	
   </dependencies>
   <build>
     <finalName>volleyCommunity</finalName>
