@@ -2,7 +2,7 @@
 <!DOCTYPE xml>
 <decorators defaultdir="/decorators">
 
-	<decorator name="basic-theme" page="template-admin.jsp">
+	<decorator name="basic-theme" page="template.jsp">
 		<pattern>/players*</pattern>
 		<pattern>/positions*</pattern>
 	</decorator>
