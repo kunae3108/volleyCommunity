@@ -6,19 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class PlayerManagementController {
+public class HomeController {
 
-	@RequestMapping(value = "/players",method = RequestMethod.GET)
-	public ModelAndView showPlayers(){
-		ModelAndView mView = new ModelAndView("players"); 
-		return mView;
+	@RequestMapping(value= "/", method=RequestMethod.GET)
+	public ModelAndView index(){
+		return new ModelAndView("index");
 	}
-	
-	
-	
-	
-	
-	
-	
 }
-    

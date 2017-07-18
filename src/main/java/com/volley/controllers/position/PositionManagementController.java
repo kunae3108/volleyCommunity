@@ -1,4 +1,4 @@
-package com.volley.controllers;
+package com.volley.controllers.position;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
