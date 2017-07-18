@@ -4,8 +4,7 @@
 
 	<decorator name="basic-theme" page="home-template.jsp">
 		<pattern>/*</pattern>
-<!-- 		<pattern>/players*</pattern> -->
-<!-- 		<pattern>/positions*</pattern> -->
+
 		<excludes>
 	        <pattern>/static/</pattern>
 		</excludes>
