@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+div.navbar.navbar-fixed-top {
+    background-color: #0316f3;
+    height: 60px;
+    font-weight: bold;
+}
+
+
+.navbar-brand{
+    margin-top: -10px;
+    padding: 0px;
+}
+
+.navbar-inverse .navbar-nav>.active>a
+, .navbar-inverse .navbar-nav>.active>a:focus
+, .navbar-inverse .navbar-nav>.active>a:hover{
+    color: #fff;
+    background-color: #ff6a00;
+}

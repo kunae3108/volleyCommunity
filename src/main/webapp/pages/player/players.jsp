@@ -8,23 +8,25 @@
 </style>
 
 <h1>
-   Players
-  <small>player statistics table</small>
+  Player
+  <small> List</small>
 </h1>
 
 <div class="table-responsive">
-	<table class="form-control">
+	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>No.</th>
-				<th>Name</th>
-				<th>Shirt No.</th>
-				<th>Nation</th>
-				<th>Position</th>
+				<th width="10%" style="text-align: center;">No.</th>
+				<th width="30%" style="text-align: center;">Name</th>
+				<th width="10%" style="text-align: center;">Shirt No.</th>
+				<th width="15%" style="text-align: center;">Nation</th>
+				<th width="15%" style="text-align: center;">Position</th>
+				<th width="20%" style="text-align: center;">Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>

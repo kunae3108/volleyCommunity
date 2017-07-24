@@ -244,7 +244,8 @@ h1, h2, h3, h4, h5, h6 {
 ======================*/
 
 #navigation .navbar {
-  background:rgba(255, 255, 255, 0.952941);
+/*   original - background:rgba(255, 255, 255, 0.952941); */
+  background: rgba(39, 68, 181, 0.952941);
   border-radius: 0;
   border-bottom: 0;
   box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 3px;
@@ -270,7 +271,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #navigation .navbar-nav.navbar-right li a {
-	color: #43484E;
+/* 	original - color: #43484E; */
+
+	color: #FFFFFF; 
+ 	font-weight: bold; 
 	font-family: 'Roboto',sans-serif;
 	font-size: 14px;
 	padding: 0;
@@ -1242,12 +1246,13 @@ h1, h2, h3, h4, h5, h6 {
 	
 }
 
-#contact-form-section {	
+#vollcomm-form-section {	
 	padding:35px;
 	background-color: #FFF; 
 	height:390px;
 }
-#contact-form-section .btn-primary {
+
+#vollcomm-form-section .btn-primary {
 	background-color:#fc7700;
 	border-color:#f6f6f6;
 	border-radius:0;
@@ -1260,7 +1265,25 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: all 0.9s ease 0s;
 }
 
-#contact-form-section .btn-primary:hover {
+#vollcomm-form-section .btn-primary:hover {
+	background-color:#43484E
+}
+
+#vollcomm-form-section .btn-cancel {
+	background-color:#adadad ;
+    color: #fff !important;
+	border-color:#f6f6f6;
+	border-radius:0;
+	padding:10px 35px;
+	text-transform:uppercase;
+	font-weight:800;
+	transition: all 0.9s ease 0s;
+  -moz-transition: all 0.9s ease 0s;
+  -webkit-transition: all 0.9s ease 0s;
+  -o-transition: all 0.9s ease 0s;
+}
+
+#vollcomm-form-section .btn-cancel:hover {
 	background-color:#43484E
 }
 
@@ -1285,17 +1308,17 @@ h1, h2, h3, h4, h5, h6 {
 	
 }
 
-#contact-form-section .form-control {
+#vollcomm-form-section .form-control {
 	border-radius:0;
 	-webkit-box-shadow:none;
 	box-shadow:none;
 }
 
-#contact-form-section textarea {
+#vollcomm-form-section textarea {
 	resize:none
 }
 
-#contact-form-section .form-control:focus {
+#vollcomm-form-section .form-control:focus {
 	border-color: #fc7700;
 	outline: 0;
 	-webkit-box-shadow:none;

@@ -10,11 +10,17 @@ public class PlayerManagementController {
 
 	@RequestMapping(value = "/players",method = RequestMethod.GET)
 	public ModelAndView showPlayers(){
-		ModelAndView mView = new ModelAndView("players"); 
+		ModelAndView mView = new ModelAndView("player/players"); 
+		mView.addObject("playerList", null);
 		return mView;
 	}
-	
-	
+
+	@RequestMapping(value = "/addPlayer",method = RequestMethod.GET)
+	public ModelAndView initAddPlayer(){
+		ModelAndView mView = new ModelAndView("player/players");
+		mView.addObject("playerList", null); 
+		return mView;
+	}
 	
 	
 	
