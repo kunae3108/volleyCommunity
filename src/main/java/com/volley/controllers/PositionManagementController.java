@@ -1,4 +1,4 @@
-package com.volley.controllers.position;
+package com.volley.controllers;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,9 @@ import com.volley.model.VbPosition;
 @Controller
 public class PositionManagementController {
 	
-	@Autowired
-	
-	
 	final static Logger logger = Logger.getLogger(PositionManagementController.class);
 	
-	@RequestMapping(value = "positions",method = RequestMethod.GET)
+	@RequestMapping(value = "/positions",method = RequestMethod.GET)
 	public ModelAndView initPositionManagement(){
 		ModelAndView mv = new ModelAndView("position/positions");
 		
@@ -30,7 +27,7 @@ public class PositionManagementController {
 	}
 	
 	
-	@RequestMapping(value = "position/addVbPosition",method = RequestMethod.POST ,produces = "application/json" )
+	@RequestMapping(value = "/position/addVbPosition",method = RequestMethod.POST ,produces = "application/json" )
 	public @ResponseBody AjaxResponseObj addVolleyPosition(@RequestBody VbPosition vbPosition){
 		AjaxResponseObj result = new AjaxResponseObj();
 		result.setCode("200");

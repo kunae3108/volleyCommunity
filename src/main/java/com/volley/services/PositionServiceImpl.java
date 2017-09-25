@@ -7,9 +7,6 @@ import com.volley.model.VbPosition;
 @Service(value = "positionService")
 public class PositionServiceImpl implements PositionService {
 
-	
-	
-	@Override
 	public Integer insert(VbPosition vbPosition) throws Exception {
 		// TODO Auto-generated method stub
 		return null;

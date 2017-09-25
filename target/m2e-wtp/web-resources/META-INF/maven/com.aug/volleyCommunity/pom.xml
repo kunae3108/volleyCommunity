@@ -11,7 +11,7 @@
 
 	<properties>
 		<plugin.compiler.version>3.1</plugin.compiler.version>
-		<compile.version>1.8</compile.version>
+		<java.compiler.version>1.8</java.compiler.version>
 		<spring-mvc-version>4.2.6.RELEASE</spring-mvc-version>
 		<servlet.api.version>3.1.0</servlet.api.version>
 		<jstl-version>1.2</jstl-version>
@@ -52,12 +52,6 @@
 		<slf4j.version>1.7.7</slf4j.version>
 		
 		<log4j.version>1.2.17</log4j.version>
-
-
-		<db.driverClassName>com.mysql.jdbc.Driver</db.driverClassName>
-		<db.url>jdbc:mysql://localhost:3306/AUG_HR_DB</db.url>
-		<db.username>root</db.username>
-		<db.password>root</db.password>
 	</properties>
 
 
@@ -74,16 +68,8 @@
 	</dependencyManagement>
 
 	<dependencies>
-
-		<!-- jUnit -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- spring-mvc -->
+		
+		<!-- ############################################# Spring Framework(begin) ############################################# -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -121,12 +107,34 @@
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
 
+		<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.jpa.version}</version>
+		</dependency>
+		
 		<!-- Transaction dependency is required with Quartz integration -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+			<version>0.16.0.RELEASE</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		
+		<!-- ############################################ Spring Framework(end) ############################################## -->
+
+		<!-- ######################################### Hibernate Framework(start) ############################################ -->
+		
 		<!-- Persistence -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -143,16 +151,48 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>${common.dbcp2.version}</version>
 		</dependency>
-
-		<!-- Spring Data JPA -->
+		
+		<!-- hibernate -->
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring.data.jpa.version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core-version}</version>
 		</dependency>
 
-		<!-- Groovy Languages -->
+		<!-- Querydsl -->
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-core</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
+		
+		<!-- MySQL database driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.driver.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.validator.version}</version>
+		</dependency>
+		
+		<!-- ######################################### Hibernate Framework(end) ############################################ -->
+
+		<!-- Groovy Languages -->
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
@@ -208,32 +248,6 @@
 			<version>${sitemesh-version}</version>
 		</dependency>
 
-		<!-- hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate-core-version}</version>
-		</dependency>
-
-		<!-- Querydsl -->
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-core</artifactId>
-			<version>${querydsl.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<version>${querydsl.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-jpa</artifactId>
-			<version>${querydsl.version}</version>
-		</dependency>
-
 		<!-- BoneCP -->
 		<dependency>
 			<groupId>com.jolbox</groupId>
@@ -247,12 +261,6 @@
 			<version>3.0.0.GA</version>
 		</dependency>
 
-		<!-- MySQL database driver -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.driver.version}</version>
-		</dependency>
 
 		<!-- Logging -->
 		<dependency>
@@ -305,7 +313,6 @@
 			<version>${twilio.version}</version>
 		</dependency>
 
-
 		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -332,54 +339,14 @@
 			<version>${json.path.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.hateoas</groupId>
-			<artifactId>spring-hateoas</artifactId>
-			<version>0.16.0.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>${hibernate.validator.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<!-- we'll add more stuff here... refer variable at top -->
-			<properties>
-				<database.driverClassName>${db.driverClassName}</database.driverClassName>
-				<database.url>${db.url}</database.url>
-				<database.username>${db.username}</database.username>
-				<database.password>${db.password}</database.password>
-			</properties>
-
-		</profile>
-		<profile>
-			<id>prod</id>
-			<!-- ...and here -->
-			<properties>
-				<database.driverClass>com.mysql.jdbc.Driver</database.driverClass>
-				<database.url>jdbc:mysql://localhost:3306/VOLLEYBALL_INFO</database.url>
-				<database.username>root</database.username>
-				<database.password>root</database.password>
-			</properties>
-		</profile>
-	</profiles>
-
 
 	<build>
 		<finalName>volleyCommunity</finalName>
@@ -390,7 +357,6 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.7</version>
 				<configuration>
-					<!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
 					<encoding>UTF-8</encoding>
 				</configuration>
 
@@ -409,72 +375,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${plugin.compiler.version}</version>
 				<configuration>
-					<source>${compile.version}</source>
-					<target>${compile.version}</target>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>hibernate3-maven-plugin</artifactId>
-				<version>3.0</version>
-				<dependencies>
-					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>${mysql.connector.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<hibernatetool destdir="${project.basedir}/src/main/resources/scripts/">
-						<classpath>
-							<path location="${project.basedir}/src/main/java" />
-						</classpath>
-						<configuration
-							configurationfile="${project.basedir}/src/main/resources/hibernate.cfg.xml" />
-						<jdbcconfiguration packagename="com.aug.hrdb" />
-						<hbm2ddl create="true" drop="true" export="true"
-							outputfilename="create-schema.sql" format="true" console="true" />
-
-					</hibernatetool>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>sql-maven-plugin</artifactId>
-				<version>${plugin.sql.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>${mysql.driver.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<driver>${database.driverClassName}</driver>
-					<url>${database.url}</url>
-					<username>${database.username}</username>
-					<password>${database.password}</password>
-					<autocommit>true</autocommit>
-					<sqlCommand>
-
-					</sqlCommand>
-					<srcFiles>
-						<srcFile>${project.build.outputDirectory}/scripts/create-schema.sql</srcFile>
-						<srcFile>${project.build.outputDirectory}/scripts/init-data.sql</srcFile>
-					</srcFiles>
+					<source>${java.compiler.version}</source>
+					<target>${java.compiler.version}</target>
 				</configuration>
 			</plugin>
 
 
 		</plugins>
-
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 	</build>
 </project>
