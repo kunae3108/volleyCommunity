@@ -11,15 +11,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.volley.model.AjaxResponseObj;
 import com.volley.model.VbPosition;
-
+import com.volley.services.PositionService;
 
 @Controller
 public class PositionManagementController {
 	
 	final static Logger logger = Logger.getLogger(PositionManagementController.class);
 	
+	@Autowired
+	PositionService positionService;
+	
 	@RequestMapping(value = "/positions",method = RequestMethod.GET)
-	public ModelAndView initPositionManagement(){
+	public ModelAndView initPositionManagement() throws Exception{
+		positionService.getPosition();
+		
+		
 		ModelAndView mv = new ModelAndView("position/positions");
 		
 		
