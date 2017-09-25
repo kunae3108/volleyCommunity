@@ -26,7 +26,7 @@ public class PositionDaoImpl extends BaseDao implements PositionDao{
 				
 //				.createNativeQuery("select * from vb_position").getResultList();
 		List<VbPosition> vbPositions = query.getResultList();
-		
+		System.out.println("size: "+vbPositions.size());
 		return vbPositions;
 	}
 	

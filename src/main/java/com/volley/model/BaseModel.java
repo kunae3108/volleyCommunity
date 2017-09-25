@@ -2,13 +2,18 @@ package com.volley.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
+
 public class BaseModel {
 
+	@Column(name = "CREATE_DATE")
 	private Timestamp createDate;
+	@Column(name = "CREATE_BY")
 	private String createBy;
-	private Timestamp updateDate;
+	@Column(name = "UPDATE_DTTM")
+	private Timestamp updateDtt;
+	@Column(name = "UPDATE_BY")
 	private String updateBy;
-	private String rowNumber;
 
 	public Timestamp getCreateDate() {
 		return createDate;
@@ -26,12 +31,12 @@ public class BaseModel {
 		this.createBy = createBy;
 	}
 
-	public Timestamp getUpdateDate() {
-		return updateDate;
+	public Timestamp getUpdateDtt() {
+		return updateDtt;
 	}
 
-	public void setUpdateDate(Timestamp updateDate) {
-		this.updateDate = updateDate;
+	public void setUpdateDtt(Timestamp updateDtt) {
+		this.updateDtt = updateDtt;
 	}
 
 	public String getUpdateBy() {
@@ -40,14 +45,6 @@ public class BaseModel {
 
 	public void setUpdateBy(String updateBy) {
 		this.updateBy = updateBy;
-	}
-
-	public String getRowNumber() {
-		return rowNumber;
-	}
-
-	public void setRowNumber(String rowNumber) {
-		this.rowNumber = rowNumber;
 	}
 
 }

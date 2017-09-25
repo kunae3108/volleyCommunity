@@ -20,7 +20,7 @@
 	
 	<!--mvc config-->
 	<mvc:annotation-driven enable-matrix-variables="true" />
-	<mvc:resources mapping="/static/**" location="/resource/" />
+	<mvc:resources mapping="/static/**" location="/" />
 	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
