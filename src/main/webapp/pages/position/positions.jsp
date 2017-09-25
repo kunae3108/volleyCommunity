@@ -1,7 +1,11 @@
+<%@ page language="java" contentType="text/html; UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style type="text/css">
 table#positions th {
+	text-align: center;
+}
+table#positions td {
 	text-align: center;
 }
 </style>
@@ -23,23 +27,21 @@ table#positions th {
 			<tr>
 				<th>No.</th>
 				<th>Code</th>
-				<th>Name</th>
+				<th>Pos. Name(En)</th>
+				<th>Pos. Name(Th)</th>
 				<th>Description</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+			<c:forEach items="${positions}" var="obj"  varStatus="iter">
+				<tr>
+					<td>${obj.positionId}</td>
+					<td>${obj.positionAcronym}</td>
+					<td>${obj.positionNameEn}</td>
+					<td>${obj.positionNameTh}</td>
+					<td>${obj.positionDesc}</td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 
@@ -47,36 +49,3 @@ table#positions th {
 
 	<jsp:include page="./addPositionModal.jsp" />
 </div>
-
-<script type="text/javascript">
-	function addVbPositionFormSubmit() {
-		var posFullname = $("#posFullname").val();
-		var posAcronym = $("#posAcronym").val();
-		var posDesc = $("#posDesc").val();
-		
-		var objVb = {};
-		objVb['posAcronym'] = posAcronym;
-		objVb['posFullname'] = posFullname;
-		objVb['posDesc'] = posDesc;
-		
-		vbPosition = JSON.stringify(objVb)
-		
-		$.ajax({
-			type : "POST",
-			contentType : "application/json",
-			url : "${pageContext.request.contextPath}/position/addVbPosition",
-			data : vbPosition,
-			dataType : 'json',
-			cache : false,
-			timeout : 600000,
-			success : function(data) {
-				console.log(data);
-
-			},
-			error : function(e) {
-				console.log(e);
-
-			}
-		});
-	}
-</script>

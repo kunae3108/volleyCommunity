@@ -7,8 +7,8 @@ import com.volley.model.VbPosition;
 
 public interface PositionService {
 
-	public Integer insert(VbPosition vbPosition) throws Exception;
+	public Integer insert(VbPosition vbPosition) ;
 	
-	public List<VbPosition> getPosition() throws Exception;
+	public List<VbPosition> getPosition() ;
 	
 }

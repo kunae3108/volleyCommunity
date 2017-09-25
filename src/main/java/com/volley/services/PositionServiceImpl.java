@@ -15,13 +15,13 @@ public class PositionServiceImpl implements PositionService {
 	PositionDao vbPositionDao;
 	
 	@Override
-	public Integer insert(VbPosition vbPosition) throws Exception {
+	public Integer insert(VbPosition vbPosition) {
 		// TODO Auto-generated method stub
-		return null;
+		return vbPositionDao.insert(vbPosition);
 	}
 
 	@Override
-	public List<VbPosition> getPosition() throws Exception {
+	public List<VbPosition> getPosition() {
 
 		return vbPositionDao.getPosition();
 	}

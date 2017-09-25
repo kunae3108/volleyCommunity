@@ -6,14 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "VB_POSITION")
 @Table(name = "VB_POSITION")
 public class VbPosition extends BaseModel {
 
 	@Id
 	@GeneratedValue
 	@Column(name = "POSITION_ID")
-	private String positionId;
+	private Integer positionId;
 
 	@Column(name = "POSITION_ACRONYM")
 	private String positionAcronym;
@@ -27,11 +27,11 @@ public class VbPosition extends BaseModel {
 	@Column(name = "POSITION_DESC")
 	private String positionDesc;
 
-	public String getPositionId() {
+	public Integer getPositionId() {
 		return positionId;
 	}
 
-	public void setPositionId(String positionId) {
+	public void setPositionId(Integer positionId) {
 		this.positionId = positionId;
 	}
 
@@ -65,6 +65,12 @@ public class VbPosition extends BaseModel {
 
 	public void setPositionDesc(String positionDesc) {
 		this.positionDesc = positionDesc;
+	}
+
+	@Override
+	public String toString() {
+		return "VbPosition [positionId=" + positionId + ", positionAcronym=" + positionAcronym + ", positionNameTh="
+				+ positionNameTh + ", positionNameEn=" + positionNameEn + ", positionDesc=" + positionDesc + "]";
 	}
 
 }
