@@ -15,15 +15,18 @@ public class PositionServiceImpl implements PositionService {
 	PositionDao vbPositionDao;
 	
 	@Override
-	public Integer insert(VbPosition vbPosition) {
-		// TODO Auto-generated method stub
+	public VbPosition insert(VbPosition vbPosition) {
 		return vbPositionDao.insert(vbPosition);
 	}
 
 	@Override
 	public List<VbPosition> getPosition() {
-
 		return vbPositionDao.getPosition();
+	}
+
+	@Override
+	public Integer delete(Integer positionId) {
+		return vbPositionDao.delete(positionId);
 	}
 
 }

@@ -11,6 +11,8 @@
 		<title>Volley Community</title>
     	<link href="<c:url value='/static/css/bootstrap.min.css'/>" rel="stylesheet">
     	<link href="<c:url value='/static/css/vbcom-main.css'/>" rel="stylesheet">
+	    <script src="<c:url value='/static/js/jquery.min.js'/>" ></script>
+		<script src="<c:url value='/static/js/bootstrap.min.js'/>"></script>
 	
 	</head>
 	<body>
@@ -32,12 +34,12 @@
 								</div> 
 								<div class="collapse navbar-collapse"> 
 									<ul class="nav navbar-nav navbar-right"> 
-										<li class="scroll active"><a href="${pageContext.request.contextPath}/">Home</a></li> 
-										<li class="scroll"><a href="${pageContext.request.contextPath}/players">Player</a></li> 
-										<li class="scroll"><a href="${pageContext.request.contextPath}/positions">Position</a></li> 
-										<li class="scroll"><a href="${pageContext.request.contextPath}/Teams">Team</a></li>
-										<li class="scroll"><a href="${pageContext.request.contextPath}/Blog">Blog</a></li> 
-										<li class="scroll"><a href="${pageContext.request.contextPath}/Contact">Contact Us</a></li> 
+										<li id="home" class="scroll active"><a href="${pageContext.request.contextPath}/">Home</a></li> 
+										<li id="player" class="scroll"><a href="${pageContext.request.contextPath}/player">Player</a></li> 
+										<li id="position" class="scroll"><a href="${pageContext.request.contextPath}/position">Position</a></li> 
+										<li id="team" class="scroll"><a href="${pageContext.request.contextPath}/team">Team</a></li>
+										<li id="blog" class="scroll"><a href="${pageContext.request.contextPath}/blog">Blog</a></li> 
+										<li id="contact" class="scroll"><a href="${pageContext.request.contextPath}/contact">Contact Us</a></li> 
 									</ul> 
 								</div> 
 							</div> 
@@ -56,10 +58,6 @@
 			</div>
 	    </div>
 	</body>
-	
-    <script src="<c:url value='/static/js/jquery.min.js'/>" ></script>
-	<script src="<c:url value='/static/js/bootstrap.min.js'/>"></script>
-	
 	
 	<script type="text/javascript">
 		$(document).ready(function(){

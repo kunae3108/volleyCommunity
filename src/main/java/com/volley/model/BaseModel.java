@@ -3,15 +3,17 @@ package com.volley.model;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
-public class BaseModel {
+@MappedSuperclass
+public abstract class BaseModel {
 
 	@Column(name = "CREATE_DATE")
 	private Timestamp createDate;
 	@Column(name = "CREATE_BY")
 	private String createBy;
 	@Column(name = "UPDATE_DTTM")
-	private Timestamp updateDtt;
+	private Timestamp updateDttm;
 	@Column(name = "UPDATE_BY")
 	private String updateBy;
 
@@ -31,12 +33,12 @@ public class BaseModel {
 		this.createBy = createBy;
 	}
 
-	public Timestamp getUpdateDtt() {
-		return updateDtt;
+	public Timestamp getUpdateDttm() {
+		return updateDttm;
 	}
 
-	public void setUpdateDtt(Timestamp updateDtt) {
-		this.updateDtt = updateDtt;
+	public void setUpdateDttm(Timestamp updateDttm) {
+		this.updateDttm = updateDttm;
 	}
 
 	public String getUpdateBy() {

@@ -1,5 +1,6 @@
 package com.volley.controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -33,34 +34,41 @@ public class PositionManagementController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/position/ajax", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody AjaxResponseObj doGetAjaxPosition() throws Exception {
-
-		List<VbPosition> positions = positionService.getPosition();
-		AjaxResponseObj result = new AjaxResponseObj();
-		result.setCode("200");
-		result.setResult("Success ja : " + positions.get(0).toString());
-		result.setMsg("success message: " + positions.get(0).getPositionNameTh());
-
-		// logger.debug(vbPosition.toString());
-
-		return result;
-	}
-
 	@RequestMapping(value = "/position/add", method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody AjaxResponseObj addVolleyPosition(@RequestBody VbPosition vbPosition) {
+	public @ResponseBody AjaxResponseObj addVolleyPosition(@RequestBody VbPosition vbPosition)  {
 		AjaxResponseObj result = new AjaxResponseObj();
-		logger.debug(vbPosition.toString());
-
-		int insResult = positionService.insert(vbPosition);
-
-		result.setCode("200");
-		result.setResult("Success ja");
-		result.setMsg("success message");
-
-		logger.debug(vbPosition.toString());
+		logger.info("prepare to insert : " + vbPosition.toString());
+		try {
+			VbPosition resultInsert = positionService.insert(vbPosition);
+			result.setCode("200");
+			result.setResult(resultInsert);
+			result.setMsg("insert success");
+			logger.info("insert success : " + resultInsert.toString());
+		} catch (Exception e) {
+			result.setCode("500");
+			result.setResult(e.getMessage());
+			result.setMsg(e.getMessage());
+		}
 
 		return result;
 	}
 
+	@RequestMapping(value = "/position/delete", method = RequestMethod.POST, produces = "application/json")
+	public @ResponseBody AjaxResponseObj delVolleyPosition(@RequestBody Integer positionId)  {
+		AjaxResponseObj result = new AjaxResponseObj();
+		logger.info("prepare to delete id : " + positionId);
+		try {
+			Integer resultInsert = positionService.delete(positionId);
+			result.setCode("200");
+			result.setResult(resultInsert==1?"success delete.":"fail delete.");
+			result.setMsg(resultInsert==1?"success delete.":"fail delete.");
+			logger.info("insert success : " + resultInsert.toString());
+		} catch (Exception e) {
+			result.setCode("500");
+			result.setResult(e.getMessage());
+			result.setMsg(e.getMessage());
+		}
+
+		return result;
+	}
 }

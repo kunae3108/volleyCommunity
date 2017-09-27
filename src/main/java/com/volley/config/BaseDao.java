@@ -2,6 +2,8 @@ package com.volley.config;
 
 import org.hibernate.Session;
 
+import com.volley.model.BaseModel;
+
 
 public class BaseDao {
 	
@@ -12,12 +14,8 @@ public class BaseDao {
 	}
 	
 	public void commitAndCloseSesstion(Session session){
-
 	    session.getTransaction().commit();
 	    session.close();
-	    
-//	    HibernateUtil.shutdown();
 	}
-	
 	
 }

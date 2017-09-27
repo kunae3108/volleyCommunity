@@ -7,7 +7,8 @@ import com.volley.model.VbPosition;
 
 public interface PositionDao {
 
-	public Integer insert(VbPosition vbPosition) ;
+	public VbPosition insert(VbPosition vbPosition) ;
 	public List<VbPosition> getPosition() ;
+	public Integer delete(Integer positionId);
 	
 }
