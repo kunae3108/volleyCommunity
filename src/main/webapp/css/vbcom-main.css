@@ -22,3 +22,16 @@ div.navbar.navbar-fixed-top {
 .form-control{
 	margin: 5px;
 }
+
+.navbar-inverse .navbar-nav>li>a{
+	color: #fff41c;
+}
+
+a.navbar-brand p{
+	color: #fff41c;
+}
+
+input.form-control.input-sm{
+	width: 150px;
+	height: 30px;
+}

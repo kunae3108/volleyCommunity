@@ -47,7 +47,7 @@ table#positions td {
 					<td>${obj.positionDesc}</td>
 					<td>
 						<button class="btn btn-warning btn-sm"
-							onclick="alert('Edit')"
+							onclick="editPositionInitial(${obj.positionId})"
 							style=" margin:5px;">Edit</button>
 						<button class="btn btn-danger btn-sm"
 							onclick='deletePosition(${obj.positionId})'
@@ -64,8 +64,26 @@ table#positions td {
 </div>
 
 <script type="text/javascript">
-	function deletePosition(id){
+	function editPositionInitial(id){
+		
+		var tmp = $('tr.position-rowId-'+id);
+		var desc = tmp.children('td:nth-child(5)').text();
+		$('tr.position-rowId-'+id).html(
+				'<td>'+id+'</td>'+
+				'<td><input align="center" id="editPosAcroNym" class="form-control input-sm" value="'+$('tr.position-rowId-'+id+' td:nth-child(2)').text()+'"/></td>'+
+				'<td><input id="editPosNameEn" class="form-control input-sm" value="'+$('tr.position-rowId-'+id+' td:nth-child(3)').text()+'"/></td>'+
+				'<td><input id="editPosNameTh" class="form-control input-sm" value="'+$('tr.position-rowId-'+id+' td:nth-child(4)').text()+'"/></td>'+
+				'<td><textarea id="editPosDesc" class="form-control input-sm" /></td>'+
+				'<td>'+
+					'<button class="btn btn-primary btn-sm" onclick="editPositionInitial(${obj.positionId})" style=" margin:5px;">Confirm</button>'+
+					'<button class="btn btn-secondary btn-sm" onclick="deletePosition(${obj.positionId})" style=" margin:5px;">Cancel</button>'+
+				'</td>');
+		$("#editPosDesc").val(desc);
+	}
 
+
+
+	function deletePosition(id){
 		if(confirm('Do you sure to delete '+$('tr.position-rowId-'+id+' td:nth-child(3)').text()+'?')){
 			positionId = JSON.stringify(id);
 			$.ajax({

@@ -28,13 +28,13 @@
 									</button> 
 									<a class="navbar-brand" href="">
 										<h1>
-											<p style="color: #ffffff;">- Volley Cummunity</p>
+											<p>- Volley Cummunity</p>
 										</h1>
 									</a> 
 								</div> 
 								<div class="collapse navbar-collapse"> 
 									<ul class="nav navbar-nav navbar-right"> 
-										<li id="home" class="scroll active"><a href="${pageContext.request.contextPath}/">Home</a></li> 
+										<li id="home" class="scroll"><a href="${pageContext.request.contextPath}/">Home</a></li> 
 										<li id="player" class="scroll"><a href="${pageContext.request.contextPath}/player">Player</a></li> 
 										<li id="position" class="scroll"><a href="${pageContext.request.contextPath}/position">Position</a></li> 
 										<li id="team" class="scroll"><a href="${pageContext.request.contextPath}/team">Team</a></li>
@@ -61,12 +61,12 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("div.collapse.navbar-collapse > li.scroll").on('click',function(){
-				$("div.collapse.navbar-collapse:child").removeClass("active");
-				$(this).addClass("active");
-			})
 			
-			
+			$("div.collapse.navbar-collapse > ul.navbar-right > li.scroll").each(function(){
+				if($(this).children('a').prop('href') == window.location.href){
+					$(this).addClass('active');
+				}
+			});
 			
 		});
 	
